@@ -4,20 +4,21 @@ from moduleElement import *
 class Student(object):
 
     def __init__(self, name):
-        pass
-        ######## CODE MISSING HERE
+        self.name = name
+        self.modules = []
+        self.grades = {}
 
-    def add_module(self,title):
-        pass
-        ######## CODE MISSING HERE
+    def add_module(self,module):
+        self.modules.append(module)
+        self.grades[module.get_title()] = module.get_grade()
 
     def get_list_modules(self):
-        pass
-        ######## CODE MISSING HERE
+        for module in self.modules:
+            print(module)
 
     def get_grades(self):
-        pass
-        ######## CODE MISSING HERE
+        for key in self.grades.keys():
+            print('{:s}: {:s}'.format(key, str(self.grades[key])))
 
 
 ### test cases ###
