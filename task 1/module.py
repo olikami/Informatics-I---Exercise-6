@@ -52,45 +52,39 @@ class Module(object):
 class Course(Module):
 
     def __str__(self):
-        pass
-        ######## CODE MISSING HERE
+        return 'Course: {:s}'.format(self.title)
 
 #########################################################################
 
 class Seminar(Module):
 
     def __init__(self,ects,title,semester,topic):
-        super().__init__(self, ects, title, semester)
+        super().__init__(ects, title, semester)
         self.topic = topic
     
     def __str__(self):
-        pass
-        ######## CODE MISSING HERE
+        return '{:s} under the topic: {:s}'.format(self.title, self.topic)
 
     def get_topic(self):
-        pass
-        ######## CODE MISSING HERE
+        return self.topic
 
 #########################################################################
 
 class Thesis(Module):
 
     def __init__(self,ects,title,semester,topic,research_group):
-        super().__init__(self, ects, title, semester)
+        super().__init__(ects, title, semester)
         self.topic = topic
         self.research_group = research_group
     
     def __str__(self):
-        pass
-        ######## CODE MISSING HERE
+        return '{:s} on the topic: {:s} in the Research Group {:s}'.format(self.title, self.topic, self.research_group)
 
     def get_topic(self):
-        pass
-        ######## CODE MISSING HERE
+        return self.research_group
 
     def get_research_group(self):
-        pass
-        ######## CODE MISSING HERE
+        return self.research_group
 
 #########################################################################
 
@@ -119,14 +113,13 @@ math1.get_important_dates_overview()
 # expected output: 2
 
 thesis = Thesis(18,"Bachelor Thesis",6,"A promising research topic on Software Engineering","SEAL")
-# print(thesis)
+print(thesis)
 # expected output:
-# Bachelor Thesison the topic: A promising research topic on Software Engineering in the Research Group SEAL
+# Bachelor Thesis on the topic: A promising research topic on Software Engineering in the Research Group SEAL
 
 
 sem = Seminar(3,"Seminar in Software Engineering",4,"A Seminar topic")
-# print(sem)
-# print(thesis)
+print(sem)
 # expected output:
 # Seminar in Software Engineering under the topic: A Seminar topic
 
