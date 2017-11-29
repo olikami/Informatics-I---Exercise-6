@@ -4,27 +4,24 @@ from vehicle import *
 class Customer(object):
     
     def __init__(self,name):
-        pass
-    ######## CODE MISSING HERE
+        self._name = name
+        self._score = self.credit_score()
 
     def __str__(self):
-        pass
-    ######## CODE MISSING HERE
+        return 'Customer: {:s}'.format(self._name)
 
     def credit_score(self):
-        pass
-    ######## CODE MISSING HERE
+        from random import randint
+        return randint(0, 100) > 60
 
     def get_score(self):
-        pass
-    ######## CODE MISSING HERE
+        return self._score
 
 
 class VIP_Customer(Customer):
 
     def credit_score(self):
-        pass
-    ######## CODE MISSING HERE
+        return True
 
 
 ### test cases ###
@@ -34,8 +31,8 @@ class VIP_Customer(Customer):
 Wendy = Customer("Wendy")
 Heidi = VIP_Customer("Heidi")
 
-# print(Wendy) # expected output: Customer: Wendy
-# print(Heidi) # expected output: Customer: Heidi
+print(Wendy) # expected output: Customer: Wendy
+print(Heidi) # expected output: Customer: Heidi
 
-# print(Wendy.get_score()) # expected output: True
-# print(Heidi.get_score()) # expected output: True
+print(Wendy.get_score()) # expected output: True or False
+print(Heidi.get_score()) # expected output: True
