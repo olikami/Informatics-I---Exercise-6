@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -9,6 +9,7 @@
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{listings}
+\usepackage{multicol}
 
 \lstset{
 	breaklines=true,
@@ -16,13 +17,94 @@
 }
 
 \usepackage[margin=1in]{geometry}
+
+\setcounter{tocdepth}{2}
 \begin{document}
 
 	\maketitle
+
+	\tableofcontents
 	
-	\section*{Task 1.1 d)}
+	\section{Create and update a git repository}
 	
-	
+		\subsection{Github}
+		
+			Link to github: \url{https://github.com/olikami/Informatics_I-Exercise_6}
+		
+		\subsection{Git commands}
+		
+			\subsubsection{\texttt{git clone}}
+			
+				Clone a remote git repository locally, will download all the files (including history to the local folder).
+			
+			\subsubsection{\texttt{git init}}
+			
+				Initialise a folder to become a local git repository.
+			
+			\subsubsection{\texttt{git status}}
+			
+				Display the current status of the git repository, including which files are currently not tracked, have untracked changes or are staged to be commited.
+			
+			\subsubsection{\texttt{git add <filepath>}}
+			
+				Add a certain file (or all files in a specific folder) to the staging area, to be commited.
+			
+			\subsubsection{\texttt{git add .}}
+			
+				Add all files to the staging area to be commited.
+			
+			\subsubsection{\texttt{git commit}}
+			
+				Commit the staged changes, this will open up a text editor where you can enter a message (basically just a text file). When you save the file and exit the editor the commit is made.
+			
+			\subsubsection{\texttt{git commit -m <message>}}
+			
+				A more direct way to commit, will take the \texttt{<message>} and commit it right away.
+			
+			\subsubsection{\texttt{git pull}}
+			
+				Pull all the changes from the remote repository. This updates the local repository. If changes have been made that are clash which each other, the user is asked to fix the errors and merge the errors. 
+			
+			\subsubsection{\texttt{git push}}
+			
+				Push the changes to the remote repository, which is then update with the local changes. This can only be done if you are up to date (eg. run \texttt{git pull}).
+			
+			\subsubsection{\texttt{git branch <name>}}
+			
+				Make a new branch with the name given.
+			
+			\subsubsection{\texttt{git checkout <branch>}}
+			
+				Change to the given branch.
+			
+			\subsubsection{\texttt{git push -u origin <branch>}}
+			
+				With a new branch, the first push has to be made, so that the new branch is also created on the remote repository.
+			
+			\subsubsection{\texttt{git merge <branch>}}
+			
+				Merge the given branch into the current branch.
 				
+			\subsubsection{\texttt{git log}}
+			
+				Display the log of all the commit with the following information: the hash of the commit, the author of the commit and the commit date.
+				
+			\subsubsection{\texttt{git log -p --graph}}
+			
+				Output the log, but with much more info. The \texttt{-p} argument gives us all the differences between the commits, while the \texttt{--graph} option fives us the lines on the left hand side.
+			
+				
+			
+		\subsection{Output of \texttt{git log -p --graph}}
+		
+			I would just like to note, that it isn't my mistake that this pdf is so long, I simply piped the entire log (as asked in the task).
+			
+			\begin{scriptsize}
+				\lstinputlisting{git.log}
+			\end{scriptsize}
+		
+		
+	
+			
 
 \end{document}
