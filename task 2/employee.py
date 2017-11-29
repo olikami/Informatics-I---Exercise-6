@@ -24,8 +24,14 @@ class Manager(Employee):
         return 'Manager'
 
     def get_sales_report(self,salesman):
-        print('{:s}\'s current cumulative sales:'.format(salesman.get_name()))
-        print(Salesman.sales[salesman])
+        try:
+            if salesman in Salesman.sales.keys():
+                print('{:s}\'s current cumulative sales:'.format(salesman.get_name()))
+                print(Salesman.sales[salesman])
+            else:
+                raise KeyError('{:s} doesn\'t appear to have any sales'.format(salesman.get_name()))
+        except KeyError as e:
+            print(e)
 
 class Salesman(Employee):
 
