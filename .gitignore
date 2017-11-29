@@ -34,3 +34,7 @@
 *.fot
 *.cb
 *.cb2
+*.synctex.gz
+
+# Remove the file from the git log
+git.log
