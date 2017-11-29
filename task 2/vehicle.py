@@ -6,9 +6,13 @@ class Vehicle(object):
     vehicles_sold = []
 
     def __init__(self,year,mileage,purchase_price,serial_number):
-        self._year = year
-        self._mileage = mileage
-        self._purchase_price = purchase_price
+        try:
+            self._year = int(year)
+            self._mileage = int(mileage)
+            self._purchase_price = int(purchase_price)
+        except ValueError as e:
+            print('Error: You didn\'t enter a number for the {:s} variable.'.format(str(e).split(' ')[-1]))  # Say which
+            # variable generates the error, that's just good manners.
         self._serial_number = serial_number
         self._vehicle_id = Vehicle.generate_vehicle_id(self)
         Vehicle.vehicle_id += 1
@@ -64,5 +68,5 @@ Veh6 = Motorcycle(1975,75500,40000,"bh545664rh",True)
 print(Veh1,Veh2,Veh3,Veh4,Veh5,Veh6)
 #prints 	100000 	100001 	100002 	100003 	100004 	100005
 
-# Veh7 = Motorcycle("year",10000,25000,"bjhgss4rdh",False)
+Veh7 = Motorcycle("year",10000,25000,"bjhgss4rdh",False)
 # instance Veh7 generates an exception (ValueError) (uncomment to test)
