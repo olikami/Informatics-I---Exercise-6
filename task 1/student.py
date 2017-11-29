@@ -14,7 +14,7 @@ class Student(object):
 
     def get_list_modules(self):
         for module in self.modules:
-            print(module)
+            print(module.get_title())
 
     def get_grades(self):
         for key in self.grades.keys():
